@@ -173,38 +173,18 @@ input{
 <body>
 
 <div class="header-logo">
-  <img src="college-logo.png">
+  <img src="C:\Users\Acer\Desktop\Credise\college-header.jpg">
 </div>
 
 <section class="hero">
   <h1><span>CRE</span>DISE</h1>
   <p>Infusing the Spirit of Youth & Culture</p>
-  <button onclick="openRegister('Event 1')">FREE REGISTRATION</button>
+  <button onclick="openRegister('General')">FREE REGISTRATION</button>
 </section>
 
 <section class="events">
   <h2>EVENTS</h2>
-  <div class="event-grid">
-
-    <div class="event-card">
-      <img src="event1.jpg">
-      <div class="event-date">Feb 12</div>
-      <h3>Event 1</h3>
-      <p>Four line description about event.<br>Rules & format.<br>Team details.<br>Judging criteria.</p>
-      <p><b>Contact:</b> 9876543210</p>
-      <button onclick="openRegister('Event 1')">Register</button>
-    </div>
-
-    <div class="event-card">
-      <img src="event2.jpg">
-      <div class="event-date">Feb 13</div>
-      <h3>Event 2</h3>
-      <p>Four line description about event.<br>Rules & format.<br>Team details.<br>Judging criteria.</p>
-      <p><b>Contact:</b> 9876543210</p>
-      <button onclick="openRegister('Event 2')">Register</button>
-    </div>
-
-  </div>
+  <div class="event-grid" id="eventGrid"></div>
 </section>
 
 <section class="about">
@@ -241,7 +221,34 @@ input{
 <div id="popup"></div>
 
 <script>
-const API_URL="https://script.google.com/macros/s/AKfycbwnkZUkCvDmm5OYkSNDJGOmVAIw65M14QNv9Nf2leKI-SAQBdvIVups-yKDrgCvAzSO/exec";
+const API_URL="https://script.google.com/macros/s/AKfycbwgd-_7eBaY1NpKcK6xf963jfrE5y3A2L62x0c-hCUyd_gIj0xxBPbRW9iGFr0UwpuV/exec";
+
+// ================= LOAD EVENTS =================
+fetch(API_URL)
+  .then(res => res.json())
+  .then(events => {
+    const grid = document.getElementById("eventGrid");
+    grid.innerHTML = "";
+
+    events.forEach(ev => {
+      const card = document.createElement("div");
+      card.className = "event-card";
+
+      card.innerHTML = `
+        <img src="${ev.img || 'event1.jpg'}">
+        <div class="event-date">LIVE</div>
+        <h3>${ev.name}</h3>
+        <p>${ev.desc || ''}<br>${ev.content || ''}</p>
+        <p><b>Contact:</b> ${ev.contact || ''}</p>
+        <button onclick="openRegister('${ev.name}')">Register</button>
+      `;
+
+      grid.appendChild(card);
+    });
+  })
+  .catch(err => {
+    eventGrid.innerHTML="<p>Unable to load events</p>";
+  });
 
 function openRegister(eventName){
   eventInput.value = eventName;
@@ -254,7 +261,10 @@ form.onsubmit=e=>{
   e.preventDefault();
   fetch(API_URL,{method:"POST",body:new FormData(form)})
   .then(r=>r.text())
-  .then(()=>show("Registration Successful",true));
+  .then(res=>{
+    if(res==="DUPLICATE") show("Already Registered",false);
+    else show("Registration Successful",true);
+  });
 };
 
 function show(msg,ok){
