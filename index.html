@@ -11,29 +11,49 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{
   font-family:Poppins,sans-serif;
-  background:#0b1c3d;
+  background:#020617;
   color:#fff;
+  position:relative;
+  overflow-x:hidden;
+}
+
+/* NEON DISCO BACKGROUND */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(circle at 20% 30%, #22d3ee55, transparent 40%),
+    radial-gradient(circle at 80% 70%, #a855f755, transparent 40%),
+    radial-gradient(circle at 50% 50%, #38bdf855, transparent 45%),
+    url("disco-bg.jpg") center/cover no-repeat;
+  filter:blur(14px);
+  transform:scale(1.15);
+  z-index:-1;
+  animation:neonMove 25s linear infinite;
+}
+
+@keyframes neonMove{
+  0%{background-position:0% 50%,100% 50%,50% 50%,50% 50%}
+  50%{background-position:100% 50%,0% 50%,50% 50%,60% 60%}
+  100%{background-position:0% 50%,100% 50%,50% 50%,50% 50%}
 }
 
 /* HEADER LOGO */
-.header-logo{
-  text-align:center;
-  padding:20px;
-}
-.header-logo img{
-  height:90px;
-}
+.header-logo{text-align:center;padding:20px}
+.header-logo img{height:90px}
 
 /* HERO */
 .hero{
-  background:
-    radial-gradient(circle at top,#1e40af,#020617);
+  background:rgba(2,6,23,.55);
+  backdrop-filter:blur(8px);
   padding:80px 20px;
   text-align:center;
 }
 .hero h1{
   font-size:60px;
   font-weight:800;
+  text-shadow:0 0 20px #38bdf8;
 }
 .hero span{color:#38bdf8}
 .hero p{opacity:.9;margin:10px 0 25px}
@@ -46,13 +66,12 @@ body{
   font-weight:700;
   color:#fff;
   cursor:pointer;
+  box-shadow:0 0 20px #2563eb;
 }
 
 /* EVENTS */
-.events{
-  padding:80px 20px;
-}
-.events h2{text-align:center;margin-bottom:40px}
+.events{padding:80px 20px}
+.events h2{text-align:center;margin-bottom:40px;text-shadow:0 0 15px #38bdf8}
 .event-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -61,15 +80,18 @@ body{
   margin:auto;
 }
 .event-card{
-  background:rgba(255,255,255,.06);
+  background:rgba(2,6,23,.65);
   backdrop-filter:blur(10px);
   border-radius:22px;
   padding:18px;
+  box-shadow:0 0 18px #38bdf833;
+  transition:.3s;
 }
-.event-card img{
-  width:100%;
-  border-radius:16px;
+.event-card:hover{
+  transform:translateY(-8px) scale(1.02);
+  box-shadow:0 0 30px #38bdf8aa;
 }
+.event-card img{width:100%;border-radius:16px}
 .event-date{
   background:#38bdf8;
   color:#000;
@@ -80,11 +102,7 @@ body{
   margin:10px 0;
 }
 .event-card h3{margin:8px 0}
-.event-card p{
-  font-size:13px;
-  opacity:.85;
-  line-height:1.6;
-}
+.event-card p{font-size:13px;opacity:.85;line-height:1.6}
 .event-card button{
   margin-top:12px;
   background:#2563eb;
@@ -94,32 +112,24 @@ body{
   color:#fff;
   font-weight:600;
   cursor:pointer;
+  box-shadow:0 0 15px #2563eb;
 }
 
 /* ABOUT */
 .about{
-  background:#f8fafc;
+  background:rgba(248,250,252,.9);
   color:#111;
   padding:80px 20px;
   text-align:center;
 }
-.about p{
-  max-width:900px;
-  margin:auto;
-  line-height:1.8;
-}
 
 /* CONTACT */
-.contact{
-  padding:60px 20px;
-  text-align:center;
-}
-.contact p{margin:8px 0}
+.contact{padding:60px 20px;text-align:center}
 
 /* REGISTER */
 #register{
   display:none;
-  background:#f8fafc;
+  background:rgba(248,250,252,.9);
   color:#111;
   padding:80px 20px;
 }
@@ -163,7 +173,7 @@ input{
 <body>
 
 <div class="header-logo">
-  <img src="college-logo.png" alt="SNGC Logo">
+  <img src="college-logo.png">
 </div>
 
 <section class="hero">
@@ -175,7 +185,7 @@ input{
 <section class="events">
   <h2>EVENTS</h2>
   <div class="event-grid">
-    <!-- Repeat pattern -->
+
     <div class="event-card">
       <img src="event1.jpg">
       <div class="event-date">Feb 12</div>
@@ -194,7 +204,6 @@ input{
       <button onclick="openRegister('Event 2')">Register</button>
     </div>
 
-    <!-- Create Event 3–8 same way -->
   </div>
 </section>
 
@@ -235,8 +244,8 @@ input{
 const API_URL="https://script.google.com/macros/s/AKfycbwnkZUkCvDmm5OYkSNDJGOmVAIw65M14QNv9Nf2leKI-SAQBdvIVups-yKDrgCvAzSO/exec";
 
 function openRegister(eventName){
-  document.getElementById("eventInput").value = eventName;
-  document.getElementById("eventTitle").innerText = eventName + " Registration";
+  eventInput.value = eventName;
+  eventTitle.innerText = eventName + " Registration";
   register.style.display="block";
   window.scrollTo({top:register.offsetTop,behavior:"smooth"});
 }
