@@ -1,31 +1,32 @@
-/* Reset */
+/* ================= RESET ================= */
 *{
   box-sizing:border-box;
   margin:0;
   padding:0;
 }
 
-/* Body */
+/* ================= BODY ================= */
 body{
-  font-family: Poppins, sans-serif; /* Normal clean font */
+  font-family:'Poppins', sans-serif;
   background:#020617;
   color:#fff;
   position:relative;
   overflow-x:hidden;
   min-height:100vh;
+  text-align:center;
 }
 
-/* Background image */
+/* ================= BACKGROUND IMAGE ================= */
 body::before{
   content:"";
   position:fixed;
   inset:0;
   background:
     linear-gradient(rgba(2,6,23,.7),rgba(2,6,23,.7)),
-    url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgS93nlCaknratJ5Fzs13mrj9sVIch9BZdVw&s")
+    url("https://betches.s3.amazonaws.com/app/uploads/2019/09/27094047/party.jpg")
     center/cover no-repeat;
   z-index:-1;
-  animation:neonZoom 25s ease-in-out infinite; /* Optional zoom effect */
+  animation:neonZoom 25s ease-in-out infinite;
 }
 
 @keyframes neonZoom{
@@ -34,34 +35,65 @@ body::before{
   100%{transform:scale(1)}
 }
 
-/* Header Logo */
-.header-logo{
-  text-align:center;
-  padding:25px;
-}
-.header-logo img{
-  height:90px;
-  /* Removed glow */
+/* ================= COLLEGE HEADER (NO BAR LOOK) ================= */
+.college-header{
+  background:transparent;
 }
 
-/* Hero Section */
-.hero{
-  padding:120px 20px;
-  text-align:center;
+.header-content{
+  padding:30px 20px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
 }
+
+.college-logo{
+  height:90px;
+  background:#fff;
+  padding:6px 10px;
+  border-radius:16px;
+  margin-bottom:12px;
+}
+
+.college-name{
+  font-family:'Lemon', cursive;
+  font-size:26px;
+  color:#38bdf8;
+}
+
+.college-place{
+  font-size:15px;
+  opacity:.9;
+}
+
+.wave{
+  display:none;
+}
+
+/* ================= HERO ================= */
+.hero{
+  min-height:80vh;
+  padding:120px 20px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+
 .hero h1{
   font-size:64px;
-  font-weight:700; /* Normal bold */
+  font-weight:700;
   letter-spacing:4px;
-  text-shadow: none; /* Removed neon glow */
 }
-.hero span{
-  color:#38bdf8; /* Highlight color stays */
-}
+
+.hero span{ color:#38bdf8; }
+
 .hero p{
+  max-width:600px;
+  margin:14px auto 30px;
   opacity:.9;
-  margin:14px 0 30px;
 }
+
 .hero button{
   background:#2563eb;
   border:none;
@@ -71,29 +103,29 @@ body::before{
   font-weight:700;
   color:#fff;
   cursor:pointer;
-  box-shadow:0 0 25px #2563eb; /* Button glow stays */
-  transition:0.3s;
+  box-shadow:0 0 25px #2563eb;
+  transition:.3s;
 }
 .hero button:hover{
   transform:scale(1.05);
 }
 
-/* Events Section */
+/* ================= EVENTS (EQUAL HEIGHT CARDS) ================= */
 .events{
   padding:100px 20px;
 }
+
 .events h2{
-  text-align:center;
   margin-bottom:40px;
-  text-shadow:none; /* Removed glow */
 }
 
 .event-grid{
+  max-width:1200px;
+  margin:auto;
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
   gap:25px;
-  max-width:1200px;
-  margin:auto;
+  align-items:stretch;
 }
 
 .event-card{
@@ -103,59 +135,72 @@ body::before{
   padding:18px;
   box-shadow:0 0 18px #38bdf833;
   transition:.3s;
-}
-
-.event-card:hover{
-  transform:translateY(-8px) scale(1.02);
-  box-shadow:0 0 35px #38bdf8aa;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  height:100%;
 }
 
 .event-card img{
   width:100%;
   border-radius:16px;
 }
+
+.event-card h3{
+  margin:10px 0 6px;
+}
+
+.event-card p{
+  flex-grow:1;
+  font-size:14px;
+}
+
 .event-date{
   background:#38bdf8;
   color:#000;
-  display:inline-block;
   padding:4px 12px;
   border-radius:20px;
   font-size:12px;
+  display:inline-block;
   margin:10px 0;
 }
 
-/* Event Register Button (same as hero button) */
 .event-card button{
   background:#2563eb;
   border:none;
-  padding:10px 28px; /* smaller padding */
-  border-radius:30px; /* slightly smaller radius */
-  font-size:16px; /* smaller text */
+  padding:10px 28px;
+  border-radius:30px;
+  font-size:16px;
   font-weight:600;
   color:#fff;
   cursor:pointer;
-  box-shadow:0 0 20px #2563eb; /* slightly smaller shadow */
-  transition:0.3s;
+  box-shadow:0 0 20px #2563eb;
+  transition:.3s;
 }
 .event-card button:hover{
   transform:scale(1.05);
 }
 
-/* About Section */
+/* ================= ABOUT ================= */
 .about{
   background:rgba(255,255,255,.9);
   color:#111;
   padding:80px 20px;
-  text-align:center;
 }
 
-/* Contact Section */
+.about p{
+  max-width:900px;
+  margin:auto;
+  text-align:justify;
+  font-size:16px;
+}
+
+/* ================= CONTACT ================= */
 .contact{
   padding:60px 20px;
-  text-align:center;
 }
 
-/* Register Section */
+/* ================= REGISTER ================= */
 #register{
   display:none;
   background:rgba(255,255,255,.9);
@@ -163,13 +208,13 @@ body::before{
   padding:80px 20px;
 }
 
-/* Form Box */
 .form-box{
   max-width:500px;
   margin:auto;
   background:#fff;
   padding:30px;
   border-radius:20px;
+  text-align:left;
 }
 
 input{
@@ -185,18 +230,32 @@ input{
   padding:14px;
   background:#2563eb;
   border:none;
-  border-radius:40px; /* Made same as hero button */
+  border-radius:40px;
   color:#fff;
   font-weight:700;
-  cursor:pointer;
   box-shadow:0 0 25px #2563eb;
-  transition:0.3s;
-}
-.form-box button:hover{
-  transform:scale(1.05);
 }
 
-/* Popup */
+/* ================= FLOATING REGISTER BUTTON ================= */
+.floating-register{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#2563eb;
+  color:#fff;
+  padding:14px 22px;
+  border-radius:40px;
+  font-weight:700;
+  box-shadow:0 0 25px #2563eb;
+  cursor:pointer;
+  z-index:999;
+  transition:.3s;
+}
+.floating-register:hover{
+  transform:scale(1.08);
+}
+
+/* ================= POPUP ================= */
 #popup{
   position:fixed;
   top:20px;
@@ -205,4 +264,12 @@ input{
   padding:14px 26px;
   border-radius:30px;
   display:none;
+  z-index:999;
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:600px){
+  .college-logo{ height:70px; }
+  .college-name{ font-size:20px; }
+  .hero h1{ font-size:42px; }
 }
