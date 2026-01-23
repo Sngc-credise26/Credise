@@ -1,0 +1,208 @@
+/* Reset */
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+/* Body */
+body{
+  font-family: Poppins, sans-serif; /* Normal clean font */
+  background:#020617;
+  color:#fff;
+  position:relative;
+  overflow-x:hidden;
+  min-height:100vh;
+}
+
+/* Background image */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:
+    linear-gradient(rgba(2,6,23,.7),rgba(2,6,23,.7)),
+    url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgS93nlCaknratJ5Fzs13mrj9sVIch9BZdVw&s")
+    center/cover no-repeat;
+  z-index:-1;
+  animation:neonZoom 25s ease-in-out infinite; /* Optional zoom effect */
+}
+
+@keyframes neonZoom{
+  0%{transform:scale(1)}
+  50%{transform:scale(1.08)}
+  100%{transform:scale(1)}
+}
+
+/* Header Logo */
+.header-logo{
+  text-align:center;
+  padding:25px;
+}
+.header-logo img{
+  height:90px;
+  /* Removed glow */
+}
+
+/* Hero Section */
+.hero{
+  padding:120px 20px;
+  text-align:center;
+}
+.hero h1{
+  font-size:64px;
+  font-weight:700; /* Normal bold */
+  letter-spacing:4px;
+  text-shadow: none; /* Removed neon glow */
+}
+.hero span{
+  color:#38bdf8; /* Highlight color stays */
+}
+.hero p{
+  opacity:.9;
+  margin:14px 0 30px;
+}
+.hero button{
+  background:#2563eb;
+  border:none;
+  padding:14px 42px;
+  border-radius:40px;
+  font-size:18px;
+  font-weight:700;
+  color:#fff;
+  cursor:pointer;
+  box-shadow:0 0 25px #2563eb; /* Button glow stays */
+  transition:0.3s;
+}
+.hero button:hover{
+  transform:scale(1.05);
+}
+
+/* Events Section */
+.events{
+  padding:100px 20px;
+}
+.events h2{
+  text-align:center;
+  margin-bottom:40px;
+  text-shadow:none; /* Removed glow */
+}
+
+.event-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+  max-width:1200px;
+  margin:auto;
+}
+
+.event-card{
+  background:rgba(0,0,0,.55);
+  backdrop-filter:blur(12px);
+  border-radius:22px;
+  padding:18px;
+  box-shadow:0 0 18px #38bdf833;
+  transition:.3s;
+}
+
+.event-card:hover{
+  transform:translateY(-8px) scale(1.02);
+  box-shadow:0 0 35px #38bdf8aa;
+}
+
+.event-card img{
+  width:100%;
+  border-radius:16px;
+}
+.event-date{
+  background:#38bdf8;
+  color:#000;
+  display:inline-block;
+  padding:4px 12px;
+  border-radius:20px;
+  font-size:12px;
+  margin:10px 0;
+}
+
+/* Event Register Button (same as hero button) */
+.event-card button{
+  background:#2563eb;
+  border:none;
+  padding:10px 28px; /* smaller padding */
+  border-radius:30px; /* slightly smaller radius */
+  font-size:16px; /* smaller text */
+  font-weight:600;
+  color:#fff;
+  cursor:pointer;
+  box-shadow:0 0 20px #2563eb; /* slightly smaller shadow */
+  transition:0.3s;
+}
+.event-card button:hover{
+  transform:scale(1.05);
+}
+
+/* About Section */
+.about{
+  background:rgba(255,255,255,.9);
+  color:#111;
+  padding:80px 20px;
+  text-align:center;
+}
+
+/* Contact Section */
+.contact{
+  padding:60px 20px;
+  text-align:center;
+}
+
+/* Register Section */
+#register{
+  display:none;
+  background:rgba(255,255,255,.9);
+  color:#111;
+  padding:80px 20px;
+}
+
+/* Form Box */
+.form-box{
+  max-width:500px;
+  margin:auto;
+  background:#fff;
+  padding:30px;
+  border-radius:20px;
+}
+
+input{
+  width:100%;
+  padding:12px;
+  margin:8px 0;
+  border-radius:10px;
+  border:1px solid #ccc;
+}
+
+.form-box button{
+  width:100%;
+  padding:14px;
+  background:#2563eb;
+  border:none;
+  border-radius:40px; /* Made same as hero button */
+  color:#fff;
+  font-weight:700;
+  cursor:pointer;
+  box-shadow:0 0 25px #2563eb;
+  transition:0.3s;
+}
+.form-box button:hover{
+  transform:scale(1.05);
+}
+
+/* Popup */
+#popup{
+  position:fixed;
+  top:20px;
+  left:50%;
+  transform:translateX(-50%);
+  padding:14px 26px;
+  border-radius:30px;
+  display:none;
+}
