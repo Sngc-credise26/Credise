@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CREDISE | SNGC</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:Poppins,sans-serif;
+  background:#0b1c3d;
+  color:#fff;
+}
+
+/* HEADER LOGO */
+.header-logo{
+  text-align:center;
+  padding:20px;
+}
+.header-logo img{
+  height:90px;
+}
+
+/* HERO */
+.hero{
+  background:
+    radial-gradient(circle at top,#1e40af,#020617);
+  padding:80px 20px;
+  text-align:center;
+}
+.hero h1{
+  font-size:60px;
+  font-weight:800;
+}
+.hero span{color:#38bdf8}
+.hero p{opacity:.9;margin:10px 0 25px}
+.hero button{
+  background:#2563eb;
+  border:none;
+  padding:14px 40px;
+  border-radius:40px;
+  font-size:18px;
+  font-weight:700;
+  color:#fff;
+  cursor:pointer;
+}
+
+/* EVENTS */
+.events{
+  padding:80px 20px;
+}
+.events h2{text-align:center;margin-bottom:40px}
+.event-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+  max-width:1200px;
+  margin:auto;
+}
+.event-card{
+  background:rgba(255,255,255,.06);
+  backdrop-filter:blur(10px);
+  border-radius:22px;
+  padding:18px;
+}
+.event-card img{
+  width:100%;
+  border-radius:16px;
+}
+.event-date{
+  background:#38bdf8;
+  color:#000;
+  display:inline-block;
+  padding:4px 12px;
+  border-radius:20px;
+  font-size:12px;
+  margin:10px 0;
+}
+.event-card h3{margin:8px 0}
+.event-card p{
+  font-size:13px;
+  opacity:.85;
+  line-height:1.6;
+}
+.event-card button{
+  margin-top:12px;
+  background:#2563eb;
+  border:none;
+  padding:10px 22px;
+  border-radius:30px;
+  color:#fff;
+  font-weight:600;
+  cursor:pointer;
+}
+
+/* ABOUT */
+.about{
+  background:#f8fafc;
+  color:#111;
+  padding:80px 20px;
+  text-align:center;
+}
+.about p{
+  max-width:900px;
+  margin:auto;
+  line-height:1.8;
+}
+
+/* CONTACT */
+.contact{
+  padding:60px 20px;
+  text-align:center;
+}
+.contact p{margin:8px 0}
+
+/* REGISTER */
+#register{
+  display:none;
+  background:#f8fafc;
+  color:#111;
+  padding:80px 20px;
+}
+.form-box{
+  max-width:500px;
+  margin:auto;
+  background:#fff;
+  padding:30px;
+  border-radius:20px;
+}
+input{
+  width:100%;
+  padding:12px;
+  margin:8px 0;
+  border-radius:10px;
+  border:1px solid #ccc;
+}
+.form-box button{
+  width:100%;
+  padding:14px;
+  background:#2563eb;
+  border:none;
+  border-radius:30px;
+  color:#fff;
+  font-weight:700;
+}
+
+/* POPUP */
+#popup{
+  position:fixed;
+  top:20px;
+  left:50%;
+  transform:translateX(-50%);
+  padding:14px 26px;
+  border-radius:30px;
+  display:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header-logo">
+  <img src="college-logo.png" alt="SNGC Logo">
+</div>
+
+<section class="hero">
+  <h1><span>CRE</span>DISE</h1>
+  <p>Infusing the Spirit of Youth & Culture</p>
+  <button onclick="openRegister('Event 1')">FREE REGISTRATION</button>
+</section>
+
+<section class="events">
+  <h2>EVENTS</h2>
+  <div class="event-grid">
+    <!-- Repeat pattern -->
+    <div class="event-card">
+      <img src="event1.jpg">
+      <div class="event-date">Feb 12</div>
+      <h3>Event 1</h3>
+      <p>Four line description about event.<br>Rules & format.<br>Team details.<br>Judging criteria.</p>
+      <p><b>Contact:</b> 9876543210</p>
+      <button onclick="openRegister('Event 1')">Register</button>
+    </div>
+
+    <div class="event-card">
+      <img src="event2.jpg">
+      <div class="event-date">Feb 13</div>
+      <h3>Event 2</h3>
+      <p>Four line description about event.<br>Rules & format.<br>Team details.<br>Judging criteria.</p>
+      <p><b>Contact:</b> 9876543210</p>
+      <button onclick="openRegister('Event 2')">Register</button>
+    </div>
+
+    <!-- Create Event 3–8 same way -->
+  </div>
+</section>
+
+<section class="about">
+  <h2>About Credise</h2>
+  <p>
+    Credise is the flagship intercollegiate cultural fest of
+    Sree Narayana Guru College. The fest brings together creativity,
+    talent and youthful energy through diverse cultural, literary
+    and fine arts events conducted over two vibrant days.
+  </p>
+</section>
+
+<section class="contact">
+  <h2>Contact</h2>
+  <p>Email: sngc@gmail.com</p>
+  <p>Phone: 9876543210</p>
+</section>
+
+<section id="register">
+  <div class="form-box">
+    <h2 id="eventTitle"></h2>
+    <form id="form">
+      <input name="name" placeholder="Full Name" required>
+      <input name="college" placeholder="College" required>
+      <input name="department" placeholder="Department" required>
+      <input name="phone" placeholder="Phone" required>
+      <input name="email" placeholder="Email" required>
+      <input type="hidden" name="event" id="eventInput">
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</section>
+
+<div id="popup"></div>
+
+<script>
+const API_URL="https://script.google.com/macros/s/AKfycbwnkZUkCvDmm5OYkSNDJGOmVAIw65M14QNv9Nf2leKI-SAQBdvIVups-yKDrgCvAzSO/exec";
+
+function openRegister(eventName){
+  document.getElementById("eventInput").value = eventName;
+  document.getElementById("eventTitle").innerText = eventName + " Registration";
+  register.style.display="block";
+  window.scrollTo({top:register.offsetTop,behavior:"smooth"});
+}
+
+form.onsubmit=e=>{
+  e.preventDefault();
+  fetch(API_URL,{method:"POST",body:new FormData(form)})
+  .then(r=>r.text())
+  .then(()=>show("Registration Successful",true));
+};
+
+function show(msg,ok){
+  popup.innerText=msg;
+  popup.style.background=ok?"#16a34a":"#dc2626";
+  popup.style.display="block";
+  setTimeout(()=>popup.style.display="none",3000);
+}
+</script>
+
+</body>
+</html>
