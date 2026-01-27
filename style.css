@@ -1,3 +1,14 @@
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+section {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+}
+
 /* ================= RESET ================= */
 *{
   box-sizing:border-box;
@@ -302,6 +313,46 @@ input{
     text-align:left;
   }
 }
+/* ===== FIX HEADER CENTERING ===== */
+
+.hero-header{
+  width:100%;
+  max-width:900px;
+  margin:0 auto 20px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+}
+
+.college-logo{
+  max-width:100%;
+  height:auto;
+  display:block;
+  margin:0 auto 10px;
+}
+
+.college-name{
+  font-size:22px;
+  font-weight:600;
+}
+
+.college-place{
+  font-size:14px;
+  opacity:.8;
+}
+
+/* ===== MOBILE PERFECT FIX ===== */
+@media(max-width:600px){
+  .college-name{
+    font-size:18px;
+  }
+
+  .fest-title{
+    font-size:40px;
+  }
+}
+
 
 /* ================= MOBILE ================= */
 @media(max-width:600px){
