@@ -16,7 +16,7 @@ body{
   text-align:center;
 }
 
-/* ================= BACKGROUND IMAGE ================= */
+/* ================= BACKGROUND ================= */
 body::before{
   content:"";
   position:fixed;
@@ -33,41 +33,6 @@ body::before{
   0%{transform:scale(1)}
   50%{transform:scale(1.08)}
   100%{transform:scale(1)}
-}
-
-/* ================= COLLEGE HEADER (NO BAR LOOK) ================= */
-.college-header{
-  background:transparent;
-}
-
-.header-content{
-  padding:30px 20px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-}
-
-.college-logo{
-  height:90px;
-  background:#fff;
-  padding:6px 10px;
-  border-radius:16px;
-  margin-bottom:12px;
-}
-
-.college-name{
-  font-family:'Lemon', cursive;
-  font-size:26px;
-  color:#38bdf8;
-}
-
-.college-place{
-  font-size:15px;
-  opacity:.9;
-}
-
-.wave{
-  display:none;
 }
 
 /* ================= HERO ================= */
@@ -106,26 +71,22 @@ body::before{
   box-shadow:0 0 25px #2563eb;
   transition:.3s;
 }
+
 .hero button:hover{
   transform:scale(1.05);
 }
 
-/* ================= EVENTS (EQUAL HEIGHT CARDS) ================= */
+/* ================= EVENTS ================= */
 .events{
   padding:100px 20px;
-}
-
-.events h2{
-  margin-bottom:40px;
 }
 
 .event-grid{
   max-width:1200px;
   margin:auto;
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:25px;
-  align-items:stretch;
 }
 
 .event-card{
@@ -134,11 +95,9 @@ body::before{
   border-radius:22px;
   padding:18px;
   box-shadow:0 0 18px #38bdf833;
-  transition:.3s;
   display:flex;
   flex-direction:column;
   justify-content:space-between;
-  height:100%;
 }
 
 .event-card img{
@@ -150,22 +109,28 @@ body::before{
   margin:10px 0 6px;
 }
 
-.event-card p{
-  flex-grow:1;
+/* ================= EVENT CONTENT ================= */
+.event-desc{
   font-size:14px;
+  margin-bottom:6px;
 }
 
-.event-date{
-  background:#38bdf8;
-  color:#000;
-  padding:4px 12px;
-  border-radius:20px;
-  font-size:12px;
-  display:inline-block;
+.event-points{
   margin:10px 0;
+  padding-left:18px;
+  text-align:left;
+  font-family:'Poppins', sans-serif;
 }
 
+.event-points li{
+  font-size:14px;
+  line-height:1.6;
+  margin-bottom:6px;
+}
+
+/* ================= BUTTON ================= */
 .event-card button{
+  margin-top:12px;
   background:#2563eb;
   border:none;
   padding:10px 28px;
@@ -177,27 +142,9 @@ body::before{
   box-shadow:0 0 20px #2563eb;
   transition:.3s;
 }
+
 .event-card button:hover{
   transform:scale(1.05);
-}
-
-/* ================= ABOUT ================= */
-.about{
-  background:rgba(255,255,255,.9);
-  color:#111;
-  padding:80px 20px;
-}
-
-.about p{
-  max-width:900px;
-  margin:auto;
-  text-align:justify;
-  font-size:16px;
-}
-
-/* ================= CONTACT ================= */
-.contact{
-  padding:60px 20px;
 }
 
 /* ================= REGISTER ================= */
@@ -236,25 +183,6 @@ input{
   box-shadow:0 0 25px #2563eb;
 }
 
-/* ================= FLOATING REGISTER BUTTON ================= */
-.floating-register{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#2563eb;
-  color:#fff;
-  padding:14px 22px;
-  border-radius:40px;
-  font-weight:700;
-  box-shadow:0 0 25px #2563eb;
-  cursor:pointer;
-  z-index:999;
-  transition:.3s;
-}
-.floating-register:hover{
-  transform:scale(1.08);
-}
-
 /* ================= POPUP ================= */
 #popup{
   position:fixed;
@@ -266,10 +194,116 @@ input{
   display:none;
   z-index:999;
 }
+/* ================= GENERAL INSTRUCTIONS ================= */
+
+.instructions{
+  padding:80px 20px;
+  max-width:1000px;
+  margin:auto;
+  text-align:left;
+}
+
+.instructions h2{
+  text-align:center;
+  margin-bottom:30px;
+  font-size:36px;
+  letter-spacing:2px;
+}
+
+.instruction-list{
+  background:rgba(0,0,0,.55);
+  backdrop-filter:blur(10px);
+  border-radius:22px;
+  padding:30px 40px;
+  box-shadow:0 0 20px #38bdf833;
+}
+
+.instruction-list li{
+  font-size:16px;
+  line-height:1.7;
+  margin-bottom:14px;
+}
+.instruction-list{
+  list-style:none;
+  padding:30px 30px;
+  margin:0;
+}
+
+.instruction-list li{
+  display:flex;
+  align-items:flex-start;
+  gap:14px;
+  font-size:15px;
+  line-height:1.6;
+  margin-bottom:14px;
+  padding-left:4px;
+}
+
+.instruction-list i{
+  flex-shrink:0;            /* 🔑 prevents overflow */
+  width:22px;               /* 🔑 fixed width for icons */
+  text-align:center;
+  color:#38bdf8;
+  font-size:17px;
+  margin-top:3px;
+}
+
+/* ================= SCHEDULE TABLE ================= */
+
+.schedule{
+  padding:80px 20px;
+  max-width:900px;
+  margin:auto;
+}
+
+.schedule h2{
+  text-align:center;
+  font-size:38px;
+  margin-bottom:40px;
+  letter-spacing:2px;
+}
+
+.schedule-box{
+  background:rgba(0,0,0,.55);
+  backdrop-filter:blur(12px);
+  border-radius:20px;
+  margin-bottom:35px;
+  box-shadow:0 0 20px #38bdf833;
+  overflow:hidden;
+}
+
+.schedule-box h3{
+  background:#f97316;
+  color:#000;
+  text-align:center;
+  padding:12px;
+  font-size:20px;
+  font-weight:700;
+}
+
+.schedule-box .row{
+  display:flex;
+  justify-content:space-between;
+  padding:12px 20px;
+  border-top:1px solid rgba(255,255,255,.15);
+  font-size:15px;
+}
+
+.schedule-box .row span:last-child{
+  font-weight:600;
+  color:#38bdf8;
+}
+
+/* MOBILE FIX */
+@media(max-width:600px){
+  .schedule-box .row{
+    flex-direction:column;
+    gap:4px;
+    text-align:left;
+  }
+}
 
 /* ================= MOBILE ================= */
 @media(max-width:600px){
-  .college-logo{ height:70px; }
-  .college-name{ font-size:20px; }
   .hero h1{ font-size:42px; }
 }
