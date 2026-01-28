@@ -1,5 +1,5 @@
 const API_URL =
-"https://script.google.com/macros/s/AKfycbwgd-_7eBaY1NpKcK6xf963jfrE5y3A2L62x0c-hCUyd_gIj0xxBPbRW9iGFr0UwpuV/exec";
+"https://script.google.com/macros/s/AKfycbxwXBpMx7c1dprUdxyt0ormOKrMT1kVJqzAbfj7lbxkx2qoD6-BmEcT9_q5qV-ofpJJ/exec";
 
 fetch(API_URL)
 .then(res => res.json())
@@ -9,7 +9,6 @@ fetch(API_URL)
 
   events.forEach(ev => {
 
-    // Convert content text into bullet points
     const contentPoints = ev.content
       ? ev.content.split("\n").map(p => `<li>${p}</li>`).join("")
       : "";
@@ -19,15 +18,9 @@ fetch(API_URL)
 
     card.innerHTML = `
       <img src="${ev.img || 'event1.jpg'}">
-
       <h3>${ev.name}</h3>
-
       ${ev.desc ? `<p class="event-desc">${ev.desc}</p>` : ""}
-
-      <ul class="event-points">
-        ${contentPoints}
-      </ul>
-
+      <ul class="event-points">${contentPoints}</ul>
       <button onclick="openRegister('${ev.name}')">Register</button>
     `;
 
@@ -48,14 +41,30 @@ function openRegister(eventName){
 form.onsubmit = e => {
   e.preventDefault();
 
+  const btn = form.querySelector("button");
+  btn.classList.add("loading");
+  btn.innerText = "Submitting...";
+
   fetch(API_URL, {
     method: "POST",
     body: new FormData(form)
   })
   .then(r => r.text())
   .then(res => {
-    if(res === "DUPLICATE") show("Already Registered", false);
-    else show("Registration Successful", true);
+    if(res === "DUPLICATE") {
+      show("Already Registered", false);
+    } 
+    else {
+      show(`Registered Successfully ✅ Your Batch Code: ${res}`, true);
+      form.reset();
+    }
+  })
+  .catch(()=>{
+    show("Network Error ❌ Try again", false);
+  })
+  .finally(()=>{
+    btn.classList.remove("loading");
+    btn.innerText = "Submit";
   });
 };
 
@@ -65,3 +74,8 @@ function show(msg, ok){
   popup.style.display = "block";
   setTimeout(() => popup.style.display = "none", 3000);
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const team = document.getElementById("teamSelect");
+  if (team) team.style.display = "block";
+});

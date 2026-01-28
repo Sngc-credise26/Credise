@@ -3,10 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <title>CREDISE | SNGC</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Lemon&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <link rel="stylesheet" href="style.css">
 </head>
@@ -15,28 +16,21 @@
 
 <section class="hero">
   <div class="hero-header">
-    <img src="header.jpeg" class="college-logo">
     <h1 class="college-name">Sree Narayana Guru College</h1>
     <p class="college-place">Coimbatore</p>
   </div>
 
   <h1 class="fest-title"><span>CRE</span>DISE</h1>
   <p>Infusing the Spirit of Youth & Culture</p>
-  <button>REGISTRATION OPEN</button>
+<div class="prize-badge">
+  Attractive Cash Prize & Overall Trophy
+</div>
 </section>
 
-
-  <!-- Wave SVG -->
-  <svg class="wave" viewBox="0 0 1440 90" preserveAspectRatio="none">
-    <path 
-      d="M0,40 C120,80 240,0 360,10 480,20 600,70 720,60 840,50 960,10 1080,10 1200,10 1320,40 1440,30 L1440,0 L0,0 Z"
-      fill="#020617">
-    </path>
-  </svg>
 </header>
 
 <section class="events">
-  <h2>EVENTS</h2>
+  <h2>EVENTS</h2><br><br>
   <div class="event-grid" id="eventGrid"></div>
 </section>
 <section class="instructions">
@@ -89,7 +83,7 @@
   </ul>
 </section>
 <section class="schedule">
-  <h2>Event Schedule</h2>
+  <h2>Event Schedule</h2><br><br>
 
   <!-- ROOM EVENTS -->
   <div class="schedule-box">
@@ -133,9 +127,16 @@
 
 <section class="contact">
   <h2>Contact</h2>
-  <p>Email: sngc@gmail.com</p>
-  <p>Phone: 9876543210</p>
+
+  <div class="contact-row">
+    <span>Dr. R. Sathyadevi : +91 8883393339</span>
+    <span>|</span>
+    <span>Dr. A. J. Manju : +91 9791375110</span>
+    <span>|</span>
+    <span>Lt. R. Jeyaprakash : +91 7010947227</span>
+  </div>
 </section>
+
 <section id="register">
   <div class="form-box">
     <h2 id="eventTitle"></h2>
@@ -146,7 +147,20 @@
       <input name="phone" placeholder="Phone" required>
       <input name="email" placeholder="Email" required>
       <input type="hidden" name="event" id="eventInput">
+<select name="team" id="teamSelect" style="display:none" required>
+  <option value="">Select Team Members</option>
+  <option value="1">1 Member</option>
+  <option value="2">2 Members</option>
+  <option value="3">3 Members</option>
+  <option value="4">4 Members</option>
+  <option value="5">5 Members</option>
+  <option value="6">6 Members</option>
+  <option value="7">7 Members</option>
+  <option value="8">8 Members</option>
+</select>
+
       <button type="submit">Submit</button>
+
     </form>
   </div>
 </section>
