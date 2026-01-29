@@ -306,17 +306,27 @@ input, select{
 
 .instruction-list li{
   display:flex;
+  align-items:flex-start; 
   gap:14px;
   font-size:15px;
   line-height:1.6;
   margin-bottom:14px;
 }
-
+.instruction-list i{
+  margin-top:3px;          
+  min-width:22px;
+}
 .instruction-list i{
   width:22px;
   text-align:center;
   color:#38bdf8;
 }
+@media(max-width:600px){
+  .instruction-list i{
+    margin-top:4px;
+  }
+}
+
 
 /* ================= SCHEDULE ================= */
 .schedule{
