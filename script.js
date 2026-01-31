@@ -55,7 +55,7 @@ form.onsubmit = e => {
       show("Already Registered", false);
     } 
     else {
-      show(`Registered Successfully ✅ Your Batch Code: ${res}`, true);
+      show(`Batch Code: ${res}`, true);
       form.reset();
     }
   })
@@ -68,12 +68,20 @@ form.onsubmit = e => {
   });
 };
 
-function show(msg, ok){
-  popup.innerText = msg;
-  popup.style.background = ok ? "#16a34a" : "#dc2626";
+function show(batchCode){
+  popup.innerHTML = `
+    <h3>Registered Successfully</h3>
+    <p>We warmly welcome you to CREDISE on 11-01-2026</p>
+    <p class="batch"> ${batchCode}</p>
+    <button onclick="closePopup()">OK</button>
+  `;
   popup.style.display = "block";
-  setTimeout(() => popup.style.display = "none", 3000);
 }
+
+function closePopup(){
+  popup.style.display = "none";
+}
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const team = document.getElementById("teamSelect");

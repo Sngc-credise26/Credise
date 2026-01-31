@@ -454,4 +454,118 @@ header, .hero, .college-header{
     letter-spacing:2px;
   }
 }
+/* ================= SUCCESS POPUP ================= */
+#popup{
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%);
+  background:#ffffff;
+  color:#111;
+  padding:26px 30px;
+  border-radius:18px;
+  text-align:center;
+  font-family:'Ubuntu', sans-serif;
+  display:none;
+  z-index:999;
+  box-shadow:0 15px 35px rgba(0,0,0,.25);
+  max-width:90%;
+}
+
+#popup h3{
+  font-size:22px;
+  font-weight:700;
+  margin-bottom:8px;
+  color:#16a34a;
+}
+
+#popup p{
+  font-size:15px;
+  margin-bottom:8px;
+}
+
+#popup .batch{
+  font-size:16px;
+  font-weight:600;
+  margin-bottom:16px;
+}
+
+#popup button{
+  background:#2563eb;
+  color:#fff;
+  border:none;
+  padding:10px 34px;
+  border-radius:30px;
+  font-size:15px;
+  font-weight:600;
+  cursor:pointer;
+}
+
+#popup button:hover{
+  opacity:.9;
+}
+/* ================= EVENT DATE (RESPONSIVE) ================= */
+.event-date{
+  margin-top:100px; /* pushes it lower */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  font-family:'Ubuntu', sans-serif;
+  text-align:center;
+}
+
+/* Calendar icon color */
+.event-date i{
+  color:#facc15; /* warm gold */
+  font-size:18px;
+  flex-shrink:0;
+}
+
+/* Text block */
+.event-date span{
+  display:flex;
+  gap:8px;
+  font-size:15px;
+  font-weight:500;
+  color:#f8fafc; /* main text color */
+}
+
+/* Date emphasis */
+.event-date strong{
+  color:#cbd5f5; /* sky blue for date */
+  font-weight:600;
+}
+
+/* Subtitle */
+.event-date em{
+  font-style:normal;
+  color:#38bdf8; /* soft lavender */
+  opacity:.9;
+}
+
+/* MOBILE FIX */
+@media (max-width:600px){
+  .event-date{
+    margin-top:100px;
+    flex-direction:column;
+    gap:6px;
+  }
+
+  .event-date span{
+    flex-direction:column;
+    gap:2px;
+    font-size:16px;
+  }
+
+  .event-date i{
+    font-size:16px;
+  }
+}
+
+.event-date{
+  background:rgba(255,255,255,.06);
+  padding:8px 18px;
+  border-radius:20px;
+}
 
