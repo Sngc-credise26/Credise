@@ -551,7 +551,7 @@ header, .hero, .college-header{
 /* MOBILE FIX */
   @media (max-width: 600px) {
   .event-date {
-    margin-top: 24px;
+    margin-top: 20px;
     flex-direction: column;
     gap: 4px;
   }
