@@ -71,7 +71,7 @@ form.onsubmit = e => {
 function show(batchCode){
   popup.innerHTML = `
     <h3>Registered Successfully</h3>
-    <p>We warmly welcome you to CREDISE on 11-01-2026</p>
+    <p>We warmly welcome you to CREDISE on 11-02-2026</p>
     <p class="batch"> ${batchCode}</p>
     <button onclick="closePopup()">OK</button>
   `;
