@@ -60,7 +60,7 @@ form.onsubmit = e => {
     }
   })
   .catch(()=>{
-    show("Network Error ❌ Try again", false);
+    show("Thank you", false);
   })
   .finally(()=>{
     btn.classList.remove("loading");
